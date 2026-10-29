@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/psicolog-a-falc-n-design-system-697a55f1-1737-4299-a0d5-66829fff4254/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/psicolog-a-falc-n-design-system-697a55f1-1737-4299-a0d5-66829fff4254/tokens/colors.css">
+<link rel="stylesheet" href="_ds/psicolog-a-falc-n-design-system-697a55f1-1737-4299-a0d5-66829fff4254/tokens/typography.css">
+<link rel="stylesheet" href="_ds/psicolog-a-falc-n-design-system-697a55f1-1737-4299-a0d5-66829fff4254/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/psicolog-a-falc-n-design-system-697a55f1-1737-4299-a0d5-66829fff4254/tokens/radius.css">
+<link rel="stylesheet" href="_ds/psicolog-a-falc-n-design-system-697a55f1-1737-4299-a0d5-66829fff4254/tokens/elevation.css">
+<link rel="stylesheet" href="_ds/psicolog-a-falc-n-design-system-697a55f1-1737-4299-a0d5-66829fff4254/tokens/motion.css">
+<link rel="stylesheet" href="_ds/psicolog-a-falc-n-design-system-697a55f1-1737-4299-a0d5-66829fff4254/tokens/base.css">
+<link rel="stylesheet" href="_ds/psicolog-a-falc-n-design-system-697a55f1-1737-4299-a0d5-66829fff4254/styles.css">
+<script src="_ds/psicolog-a-falc-n-design-system-697a55f1-1737-4299-a0d5-66829fff4254/_ds_bundle.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--surface-page); color: var(--text-primary); font: var(--type-body); }
+  * { box-sizing: border-box; }
+  a { color: var(--text-link); text-decoration: none; }
+  a:hover { color: var(--text-link-hover); }
+  input, select, textarea, button { font-family: var(--font-sans); color: inherit; }
+  ::selection { background: var(--clr-blush-300); }
+  summary::-webkit-details-marker { display: none; }
+  @keyframes pf-breathe { 0%,100% { opacity:.45 } 50% { opacity:.72 } }
+  @keyframes pf-cue { 0%,100% { transform: translateY(0); opacity:.75 } 50% { transform: translateY(6px); opacity:1 } }
+  @keyframes pf-rise { from { opacity:0; transform: translateY(14px) } to { opacity:1; transform:none } }
+  .pf-card { transition: transform 420ms cubic-bezier(.2,.7,.3,1), box-shadow 420ms cubic-bezier(.2,.7,.3,1); }
+  .pf-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .pf-card img { transition: transform 900ms cubic-bezier(.2,.7,.3,1); }
+  .pf-card:hover img { transform: scale(1.05); }
+  .pf-tile { transition: transform 420ms cubic-bezier(.2,.7,.3,1), box-shadow 420ms cubic-bezier(.2,.7,.3,1); }
+  .pf-tile:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+  .pf-tile img { transition: transform 1000ms cubic-bezier(.2,.7,.3,1); }
+  .pf-tile:hover img { transform: scale(1.07); }
+  .pf-row { transition: padding-left 260ms var(--ease-standard); }
+  .pf-row:hover { padding-left: 8px; }
+  .pf-row:hover span:last-child { transform: translateX(4px); }
+  .pf-row span:last-child { transition: transform 260ms var(--ease-standard); display:inline-block }
+  details[open] summary span { transform: rotate(45deg); }
+  details summary span { transition: transform 260ms var(--ease-standard); display:inline-block }
+  @media (max-width: 860px) { [data-navlinks] { display: none !important; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</helmet>
+
+<div style="overflow-x:hidden">
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:60;transition:background var(--dur-base) var(--ease-standard),border-color var(--dur-base) var(--ease-standard)" data-header="">
+  <div style="max-width:1180px;margin:0 auto;padding:var(--space-4) var(--space-6);display:flex;align-items:center;gap:var(--space-5);flex-wrap:nowrap">
+    <a href="#top" style="display:flex;align-items:center;gap:var(--space-3)">
+      <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Wordmark" size="28" tone="inverse" hint-size="190px,32px"></x-import>
+    </a>
+    <nav style="display:flex;flex-wrap:nowrap;align-items:center;gap:var(--space-5);margin-left:auto;min-width:0;font:var(--type-eyebrow);letter-spacing:var(--tracking-normal);text-transform:uppercase;white-space:nowrap" data-navlinks="">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#como-funciona">Modalidades</a>
+      <a href="#resenas">Reseñas</a>
+      <a href="#faq">Preguntas</a>
+    </nav>
+    <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" href="#reserva" size="sm" style="{{ ctaNoShrink }}" hint-size="150px,40px">Agendar sesión</x-import>
+  </div>
+</header>
+
+<section id="top" style="position:relative;min-height:100svh;display:grid;align-items:center;overflow:hidden;background:var(--clr-clay-900)">
+  <div data-parallax="0.18" style="position:absolute;inset:-14% 0 -18%;background-image:url('assets/consultorio.png');background-size:cover;background-position:center"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(96deg,rgba(74,54,42,.92) 0%,rgba(110,82,64,.74) 46%,rgba(124,58,33,.34) 100%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(74,54,42,.55) 0%,transparent 26%,transparent 62%,rgba(74,54,42,.6) 100%)"></div>
+  <div style="position:relative;max-width:1180px;margin:0 auto;padding:calc(var(--section-y) + 40px) var(--space-6) var(--space-9);width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--space-9);align-items:center">
+    <div data-parallax="0.06" style="display:grid;gap:var(--space-6);justify-items:start">
+      <span data-reveal="0" style="font:var(--type-eyebrow);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--clr-blush-300)">Pachuca · Mérida · En línea</span>
+      <h1 data-reveal="80" style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(40px,6.4vw,84px);line-height:var(--leading-tight);color:var(--text-inverse);text-wrap:pretty">Un espacio para volver a ti, <em style="font-style:italic;color:var(--clr-blush-300)">a tu ritmo</em>.</h1>
+      <p data-reveal="160" style="margin:0;font:var(--type-body);font-size:var(--size-lg);color:var(--text-inverse-soft);max-width:30em;text-wrap:pretty">Terapia presencial en Pachuca y Mérida, o en línea por Google Meet. De lunes a sábado, de 8:00 a.m. a 8:00 p.m. Eliges a tu psicóloga, tu horario y pagas en el mismo lugar.</p>
+      <div data-reveal="240" style="display:flex;flex-wrap:wrap;gap:var(--space-4)">
+        <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" href="#reserva" variant="inverse" size="lg" icon="→" hint-size="210px,52px">Ver disponibilidad</x-import>
+        <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" href="#equipo" variant="inverseOutline" size="lg" hint-size="200px,52px">Conoce al equipo</x-import>
+      </div>
+      <div data-reveal="320" style="display:flex;gap:var(--space-6);flex-wrap:wrap;font:var(--type-eyebrow);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--text-inverse-soft);padding-top:var(--space-4);border-top:1px solid var(--border-inverse);width:100%;max-width:520px">
+        <span>Enfoque: Cognitivo – Conductual</span>
+        <span>Sesiones de 60 min</span>
+      </div>
+    </div>
+    
+  </div>
+  <a href="#como-funciona" style="position:absolute;bottom:var(--space-6);left:50%;transform:translateX(-50%);color:var(--text-inverse-soft);font:var(--type-eyebrow);letter-spacing:var(--tracking-widest);text-transform:uppercase;display:grid;justify-items:center;gap:var(--space-2)">Desliza<span style="font-size:var(--size-md);animation:pf-cue 2.4s ease-in-out infinite">↓</span></a>
+</section>
+
+<section id="como-funciona" style="background:var(--surface-page-alt);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
+  <div style="max-width:1180px;margin:0 auto;padding:var(--section-y) var(--space-6)">
+    <div data-reveal="0">
+      <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.SectionHeading" eyebrow="Modalidades" title="Dónde puedes atenderte" lead="Presencial en dos sedes, o en línea desde donde estés." hint-size="100%,180px"></x-import>
+    </div>
+    <div style="margin-top:var(--space-9);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-6)">
+      <article class="pf-card" data-reveal="0" style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow-sm)">
+        <span style="position:relative;display:block"><img src="assets/consultorio.png" alt="Consultorio en Pachuca" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"><span style="position:absolute;top:var(--space-4);left:var(--space-4);width:40px;height:40px;border-radius:50%;background:rgba(251,248,243,.92);display:grid;place-items:center;color:var(--text-accent);box-shadow:var(--shadow-sm)"><x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Icon" name="map-pin" size="{{ icon26 }}" hint-size="26px,26px"></x-import></span></span>
+        <div style="padding:var(--space-6);display:grid;gap:var(--space-3)">
+          <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-xl)">Presencial en Pachuca</h3>
+          <p style="margin:0;font:var(--type-body-sm);color:var(--text-secondary)">Consultorio en Pachuca de Soto. Atienden Linda, Ana Karen, Naomi y Karla.</p>
+        </div>
+      </article>
+      <article class="pf-card" data-reveal="90" style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow-sm)">
+        <span style="position:relative;display:block"><img src="assets/individual.jpg" alt="Sesión individual en Mérida" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"><span style="position:absolute;top:var(--space-4);left:var(--space-4);width:40px;height:40px;border-radius:50%;background:rgba(251,248,243,.92);display:grid;place-items:center;color:var(--text-accent);box-shadow:var(--shadow-sm)"><x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Icon" name="map-pin" size="{{ icon26 }}" hint-size="26px,26px"></x-import></span></span>
+        <div style="padding:var(--space-6);display:grid;gap:var(--space-3)">
+          <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-xl)">Presencial en Mérida</h3>
+          <p style="margin:0;font:var(--type-body-sm);color:var(--text-secondary)">Consultorio en Mérida. Atienden Linda y Karla.</p>
+        </div>
+      </article>
+      <article class="pf-card" data-reveal="180" style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow-sm)">
+        <span style="position:relative;display:block"><img src="assets/en-linea.png" alt="Sesión en línea por Google Meet" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"><span style="position:absolute;top:var(--space-4);left:var(--space-4);width:40px;height:40px;border-radius:50%;background:rgba(251,248,243,.92);display:grid;place-items:center;color:var(--text-accent);box-shadow:var(--shadow-sm)"><x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Icon" name="video" size="{{ icon26 }}" hint-size="26px,26px"></x-import></span></span>
+        <div style="padding:var(--space-6);display:grid;gap:var(--space-3)">
+          <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-xl)">En línea</h3>
+          <p style="margin:0;font:var(--type-body-sm);color:var(--text-secondary)">Por Google Meet. El enlace se genera solo desde el calendario de la clínica al confirmar tu reserva.</p>
+        </div>
+      </article>
+    </div>
+    <p data-reveal="0" style="margin:var(--space-6) 0 0;font:var(--type-body-sm);color:var(--text-muted);text-align:center">No hay atención presencial fuera de Pachuca y Mérida. Si estás en otra ciudad, la modalidad en línea está disponible con las cuatro psicólogas.</p>
+  </div>
+</section>
+
+<section id="proceso" style="background:var(--surface-sunken);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
+  <div style="max-width:1180px;margin:0 auto;padding:var(--section-y) var(--space-6)">
+    <div data-reveal="0">
+      <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.SectionHeading" eyebrow="Proceso" title="Cómo es agendar," italic="paso a paso" lead="Cuatro momentos, unos dos minutos. Todo desde aquí, sin llamadas ni mensajes de ida y vuelta." hint-size="100%,200px"></x-import>
+    </div>
+    <div style="margin-top:var(--space-9);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-5)">
+      <div data-reveal="0" style="position:relative;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:var(--space-8) var(--space-6) var(--space-6);display:grid;gap:var(--space-4);justify-items:start;box-shadow:var(--shadow-sm)">
+        <span style="position:absolute;top:var(--space-4);right:var(--space-5);font-family:var(--font-display);font-weight:var(--fw-light);font-size:52px;line-height:1;color:var(--clr-blush-300)">01</span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--clr-terracotta-500);display:grid;place-items:center;color:var(--clr-shell)">
+          <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Icon" name="user-search" size="{{ icon24 }}" hint-size="24px,24px"></x-import>
+        </span>
+        <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-xl);line-height:var(--leading-snug)">Eliges psicóloga</h3>
+        <p style="margin:0;font:var(--type-body-sm);color:var(--text-secondary)">Ves el perfil de las cuatro y decides tú. Si dudas, el cuestionario te sugiere una — pero nunca te asigna.</p>
+      </div>
+      <div data-reveal="90" style="position:relative;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:var(--space-8) var(--space-6) var(--space-6);display:grid;gap:var(--space-4);justify-items:start;box-shadow:var(--shadow-sm)">
+        <span style="position:absolute;top:var(--space-4);right:var(--space-5);font-family:var(--font-display);font-weight:var(--fw-light);font-size:52px;line-height:1;color:var(--clr-blush-300)">02</span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--clr-terracotta-500);display:grid;place-items:center;color:var(--clr-shell)">
+          <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Icon" name="calendar" size="{{ icon24 }}" hint-size="24px,24px"></x-import>
+        </span>
+        <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-xl);line-height:var(--leading-snug)">Escoges modalidad y horario</h3>
+        <p style="margin:0;font:var(--type-body-sm);color:var(--text-secondary)">Presencial en Pachuca o Mérida, o en línea. Lunes a sábado, de 8:00 a.m. a 8:00 p.m., en bloques de 60 minutos.</p>
+      </div>
+      <div data-reveal="180" style="position:relative;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:var(--space-8) var(--space-6) var(--space-6);display:grid;gap:var(--space-4);justify-items:start;box-shadow:var(--shadow-sm)">
+        <span style="position:absolute;top:var(--space-4);right:var(--space-5);font-family:var(--font-display);font-weight:var(--fw-light);font-size:52px;line-height:1;color:var(--clr-blush-300)">03</span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--clr-terracotta-500);display:grid;place-items:center;color:var(--clr-shell)">
+          <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Icon" name="credit-card" size="{{ icon24 }}" hint-size="24px,24px"></x-import>
+        </span>
+        <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-xl);line-height:var(--leading-snug)">Pagas en línea</h3>
+        <p style="margin:0;font:var(--type-body-sm);color:var(--text-secondary)">La sesión se cubre completa al momento de agendar. No se paga el día de la consulta.</p>
+      </div>
+      <div data-reveal="270" style="position:relative;background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:var(--space-8) var(--space-6) var(--space-6);display:grid;gap:var(--space-4);justify-items:start;box-shadow:var(--shadow-sm)">
+        <span style="position:absolute;top:var(--space-4);right:var(--space-5);font-family:var(--font-display);font-weight:var(--fw-light);font-size:52px;line-height:1;color:var(--clr-blush-300)">04</span>
+        <span style="width:56px;height:56px;border-radius:50%;background:var(--clr-terracotta-500);display:grid;place-items:center;color:var(--clr-shell)">
+          <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Icon" name="mail" size="{{ icon24 }}" hint-size="24px,24px"></x-import>
+        </span>
+        <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-xl);line-height:var(--leading-snug)">Recibes tu confirmación</h3>
+        <p style="margin:0;font:var(--type-body-sm);color:var(--text-secondary)">Te llega el comprobante por correo. Si es en línea, el enlace de Google Meet se genera solo y llega antes de la sesión.</p>
+      </div>
+    </div>
+    <div data-reveal="0" style="margin-top:var(--space-9);display:flex;flex-wrap:wrap;gap:var(--space-6);align-items:center;justify-content:center;background:var(--surface-accent);border-radius:var(--radius-card);padding:var(--space-6) var(--space-8)">
+      <span style="display:flex;align-items:center;gap:var(--space-3);font:var(--type-body-sm);color:var(--text-secondary)">
+        <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Icon" name="clock" size="{{ icon18 }}" hint-size="18px,18px"></x-import>
+        Cancelación sin costo hasta 24 h antes
+      </span>
+      <span style="display:flex;align-items:center;gap:var(--space-3);font:var(--type-body-sm);color:var(--text-secondary)">
+        <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Icon" name="check" size="{{ icon18 }}" hint-size="18px,18px"></x-import>
+        30 minutos de tolerancia
+      </span>
+      <span style="display:flex;align-items:center;gap:var(--space-3);font:var(--type-body-sm);color:var(--text-secondary)">
+        <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Icon" name="map-pin" size="{{ icon18 }}" hint-size="18px,18px"></x-import>
+        Dos sedes y modalidad en línea
+      </span>
+    </div>
+    <div data-reveal="0" style="margin-top:var(--space-6);display:flex;justify-content:center">
+      <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" href="#reserva" size="lg" icon="→" hint-size="200px,52px">Empezar ahora</x-import>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" style="max-width:1180px;margin:0 auto;padding:var(--section-y) var(--space-6)">
+  <div data-reveal="0">
+    <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.SectionHeading" eyebrow="Precios" title="Una tarifa clara," italic="sin letra chica" lead="El precio se define por cuántas personas asisten a la sesión, no por el tema que se trabaja." hint-size="100%,200px"></x-import>
+  </div>
+  <div style="margin-top:var(--space-9);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-6)">
+    <div class="pf-card" data-reveal="0" style="border:1px solid var(--border-subtle);background:var(--surface-card);border-radius:var(--radius-card);padding:var(--space-8);display:grid;gap:var(--space-3);box-shadow:var(--shadow-sm)">
+      <span style="font:var(--type-eyebrow);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--text-accent)">Individual</span>
+      <strong style="font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-4xl);line-height:1">$1,000 <span style="font-family:var(--font-sans);font-size:var(--size-lg);color:var(--text-secondary)">MXN</span></strong>
+      <span style="font:var(--type-body-sm);color:var(--text-secondary)">60 minutos · una persona</span>
+    </div>
+    <div class="pf-card" data-reveal="90" style="border:1px solid var(--border-subtle);background:var(--surface-card);border-radius:var(--radius-card);padding:var(--space-8);display:grid;gap:var(--space-3);box-shadow:var(--shadow-sm)">
+      <span style="font:var(--type-eyebrow);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--text-accent)">Pareja</span>
+      <strong style="font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-4xl);line-height:1">$1,250 <span style="font-family:var(--font-sans);font-size:var(--size-lg);color:var(--text-secondary)">MXN</span></strong>
+      <span style="font:var(--type-body-sm);color:var(--text-secondary)">60 minutos · dos personas</span>
+    </div>
+  </div>
+  <p data-reveal="0" style="margin:var(--space-6) 0 0;background:var(--surface-accent);border-radius:var(--radius-card);padding:var(--space-6) var(--space-7);font:var(--type-body);color:var(--text-primary)">Por ejemplo, si tomas tanatología tú solo/a, pagas tarifa Individual; si van dos personas, se paga tarifa Pareja.</p>
+  <ul data-reveal="0" style="margin:var(--space-6) 0 0;padding:0;list-style:none;display:grid;gap:var(--space-3);font:var(--type-body);color:var(--text-secondary)">
+    <li style="display:flex;gap:var(--space-3)"><span style="color:var(--text-accent)">✳</span>No hay consulta inicial gratuita.</li>
+    <li style="display:flex;gap:var(--space-3)"><span style="color:var(--text-accent)">✳</span>No hay descuento por paquete de sesiones.</li>
+    <li style="display:flex;gap:var(--space-3)"><span style="color:var(--text-accent)">✳</span>Cada sesión se cobra completa e individualmente.</li>
+  </ul>
+
+</section>
+
+<section id="temas" style="background:var(--surface-page-alt);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
+  <div style="max-width:1180px;margin:0 auto;padding:var(--section-y) var(--space-6)">
+    <div data-reveal="0">
+      <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.SectionHeading" eyebrow="Temas de consulta" title="Lo que puedes trabajar" lead="Todos se trabajan bajo la misma tarifa, según cuántas personas asistan a la sesión." hint-size="100%,200px"></x-import>
+    </div>
+    <div style="margin-top:var(--space-9);display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:var(--space-4)">
+      <sc-for list="{{ topicTiles }}" as="t" hint-placeholder-count="5">
+        <a href="#reserva" class="pf-tile" style="position:relative;display:block;border-radius:var(--radius-card);overflow:hidden;aspect-ratio:3/4;box-shadow:var(--shadow-sm)">
+          <img src="{{ t.src }}" alt="{{ t.label }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <span style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(74,54,42,.82) 100%)"></span>
+          <span style="position:absolute;left:var(--space-5);right:var(--space-5);bottom:var(--space-5);font:var(--type-eyebrow);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--text-inverse);line-height:1.5">{{ t.label }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+
+<section style="position:relative;overflow:hidden;background:var(--surface-contrast-deep)">
+  <div data-parallax="0.18" style="position:absolute;inset:-20% -10%;background:radial-gradient(55% 60% at 22% 30%,var(--clr-terracotta-700),transparent 68%),radial-gradient(50% 55% at 82% 72%,var(--clr-clay-700),transparent 70%);opacity:.55;animation:pf-breathe 9s ease-in-out infinite"></div>
+  <div data-parallax="-0.06" style="position:absolute;left:50%;top:var(--space-9);transform:translateX(-50%);font-family:var(--font-display);font-size:clamp(120px,22vw,300px);line-height:1;color:rgba(251,248,243,.06);pointer-events:none">“</div>
+  <div style="position:relative;max-width:900px;margin:0 auto;padding:var(--section-y) var(--space-6);text-align:center;display:grid;gap:var(--space-6);justify-items:center">
+    <p data-reveal="0" style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(28px,4vw,48px);line-height:var(--leading-snug);color:var(--text-inverse);text-wrap:pretty">Lo que hoy te pesa no tiene que acompañarte para siempre.</p>
+    <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Divider" ornament="asterisk" width="200" tone="inverse" hint-size="200px,16px"></x-import>
+    <span data-reveal="80" style="font:var(--type-eyebrow);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--clr-blush-300)">@psicologia_falcon</span>
+  </div>
+</section>
+
+<section id="equipo" style="background:var(--surface-page)">
+  <div style="max-width:1180px;margin:0 auto;padding:var(--section-y) var(--space-6)">
+    <div data-reveal="0">
+      <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.SectionHeading" eyebrow="Equipo" title="Cuatro psicólogas" lead="Puedes elegir a quien quieras, sin importar lo que sugiera el cuestionario." hint-size="100%,180px"></x-import>
+    </div>
+    <div style="margin:var(--space-9) auto 0;max-width:800px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:var(--space-6)">
+      <sc-for list="{{ team }}" as="p" hint-placeholder-count="4">
+        <article class="pf-card" data-reveal="0" style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-card);box-shadow:var(--shadow-sm);overflow:hidden;display:grid;grid-template-rows:auto 1fr">
+          <div style="aspect-ratio:4/3;background:{{ p.tintBg }};display:grid;place-items:center">
+            <span style="font-family:var(--font-display);font-weight:var(--fw-light);font-size:56px;color:rgba(251,248,243,.9);line-height:1">{{ p.initials }}</span>
+          </div>
+          <div style="padding:var(--space-6);display:grid;gap:var(--space-3);align-content:start">
+            <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-xl);line-height:var(--leading-snug)">{{ p.name }}</h3>
+            <span style="font:var(--type-eyebrow);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:{{ p.cedulaColor }}">{{ p.cedulaLabel }}</span>
+            <span style="font:var(--type-body-sm);color:var(--text-secondary)">{{ p.sedesLabel }}</span>
+            <span style="font:var(--type-body-sm);color:var(--text-secondary)">{{ p.enfoque }}</span>
+            <div style="margin-top:var(--space-2);justify-self:start">
+              <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" variant="secondary" size="sm" onClick="{{ p.book }}" hint-size="180px,40px">{{ p.cta }}</x-import>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="resenas" style="background:var(--surface-page-alt);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
+  <div style="max-width:1180px;margin:0 auto;padding:var(--section-y) var(--space-6)">
+    <div data-reveal="0">
+      <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.SectionHeading" eyebrow="Reseñas" title="Lo que cuentan" italic="quienes ya vinieron" lead="Publicadas con iniciales, con autorización de cada persona." hint-size="100%,200px"></x-import>
+    </div>
+    <div style="margin-top:var(--space-9);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-6)">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+        <div data-reveal="0" class="pf-card">
+          <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.TestimonialCard" quote="{{ r.quote }}" author="{{ r.author }}" detail="{{ r.detail }}" hint-size="100%,240px"></x-import>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<sc-if value="{{ showQuiz }}" hint-placeholder-val="{{ true }}">
+<section id="quiz" style="max-width:1180px;margin:0 auto;padding:var(--section-y) var(--space-6)">
+  <div data-reveal="0">
+    <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.SectionHeading" eyebrow="Orientación" title="¿Con quién empiezo?" lead="Cuatro preguntas. Es una sugerencia, no una asignación: puedes agendar con quien tú quieras." hint-size="100%,180px"></x-import>
+  </div>
+  <div style="margin-top:var(--space-9);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:var(--space-10);align-items:start">
+    <div style="display:grid;gap:var(--space-8)">
+      <div>
+        <p style="margin:0 0 var(--space-4);font:var(--type-eyebrow);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--text-accent)">1 · ¿Quién va a tomar la terapia?</p>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--space-3)">
+          <sc-for list="{{ q1 }}" as="o" hint-placeholder-count="4">
+            <button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <sc-if value="{{ showQ2 }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <p style="margin:0 0 var(--space-4);font:var(--type-eyebrow);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--text-accent)">2 · ¿Qué te gustaría trabajar?</p>
+          <div style="display:flex;flex-wrap:wrap;gap:var(--space-3)">
+            <sc-for list="{{ q2 }}" as="o" hint-placeholder-count="5">
+              <button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+      <div>
+        <p style="margin:0 0 var(--space-4);font:var(--type-eyebrow);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--text-accent)">3 · ¿Dónde prefieres atenderte?</p>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--space-3)">
+          <sc-for list="{{ q3 }}" as="o" hint-placeholder-count="3">
+            <button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0 0 var(--space-4);font:var(--type-eyebrow);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--text-accent)">4 · ¿Práctico y estructurado, o explorar libremente? (opcional)</p>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--space-3)">
+          <sc-for list="{{ q4 }}" as="o" hint-placeholder-count="2">
+            <button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="justify-self:start">
+        <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" variant="ghost" size="sm" onClick="{{ resetQuiz }}" hint-size="150px,32px">Empezar de nuevo</x-import>
+      </div>
+    </div>
+    <div style="background:var(--surface-accent);border-radius:var(--radius-card);padding:var(--space-8);display:grid;gap:var(--space-5);align-content:start">
+      <span style="font:var(--type-eyebrow);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--text-accent)">Sugerencia</span>
+      <sc-if value="{{ hasMatch }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;gap:var(--space-4)">
+          <sc-for list="{{ matches }}" as="m" hint-placeholder-count="2">
+            <div style="background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-card);padding:var(--space-6);display:grid;gap:var(--space-2)">
+              <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-xl)">{{ m.name }}</h3>
+              <span style="font:var(--type-eyebrow);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:{{ m.cedulaColor }}">{{ m.cedulaLabel }}</span>
+              <span style="font:var(--type-body-sm);color:var(--text-secondary)">{{ m.sedesLabel }}</span>
+              <span style="font:var(--type-body-sm);color:var(--text-quiet-accent)">{{ m.reason }}</span>
+              <div style="margin-top:var(--space-2);justify-self:start">
+                <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" size="sm" onClick="{{ m.book }}" hint-size="180px,40px">{{ m.cta }}</x-import>
+              </div>
+            </div>
+          </sc-for>
+          <p style="margin:0;font:var(--type-body-sm);color:var(--text-secondary)">Puedes ignorar esta sugerencia y elegir a cualquier otra psicóloga desde el equipo o desde el flujo de reserva.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ noMatch }}" hint-placeholder-val="{{ true }}">
+        <p style="margin:0;font:var(--type-body);color:var(--text-secondary)">Responde las preguntas y aquí aparecerán una o dos psicólogas que encajan con lo que necesitas.</p>
+      </sc-if>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<section id="reserva" style="background:var(--surface-page-alt);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)">
+  <div style="max-width:1180px;margin:0 auto;padding:var(--section-y) var(--space-6)">
+    <div data-reveal="0">
+      <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.SectionHeading" eyebrow="Reserva" title="Agenda tu sesión" lead="Ocho pasos cortos. El pago es en línea, al momento de agendar." hint-size="100%,180px"></x-import>
+    </div>
+
+    <div style="margin-top:var(--space-9);background:var(--surface-card);border:1px solid var(--border-subtle);border-radius:var(--radius-card);box-shadow:var(--shadow-sm);overflow:hidden">
+      <div style="padding:var(--space-5) var(--space-8);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;gap:var(--space-5);flex-wrap:wrap">
+        <span style="font:var(--type-eyebrow);letter-spacing:var(--tracking-wider);text-transform:uppercase;color:var(--text-accent)">{{ stepLabel }}</span>
+        <div style="flex:1;min-width:120px;height:3px;background:var(--clr-greige-300);overflow:hidden">
+          <div style="height:100%;background:var(--clr-terracotta-500);transition:width var(--dur-base) var(--ease-out-soft);width:{{ progress }}"></div>
+        </div>
+      </div>
+
+      <div style="padding:var(--space-8)">
+        <sc-if value="{{ s1 }}" hint-placeholder-val="{{ true }}">
+          <div style="display:grid;gap:var(--space-5)">
+            <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-2xl)">Elige a tu psicóloga</h3>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-4)">
+              <sc-for list="{{ psyOptions }}" as="o" hint-placeholder-count="4">
+                <button onClick="{{ o.pick }}" style="{{ o.style }}">
+                  <strong style="display:block;font-family:var(--font-display);font-weight:var(--fw-regular);font-size:var(--size-lg)">{{ o.name }}</strong>
+                  <span style="display:block;font:var(--type-body-sm);color:var(--text-secondary);margin-top:6px">{{ o.sedesLabel }}</span>
+                  <span style="display:block;font:var(--type-body-sm);color:var(--text-muted)">{{ o.cedulaLabel }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ s2 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;gap:var(--space-5)">
+            <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-2xl)">¿Cómo quieres tomar la sesión?</h3>
+            <p style="margin:0;font:var(--type-body-sm);color:var(--text-secondary)">Solo se muestran las sedes donde atiende {{ psyFirstName }}.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-4)">
+              <sc-for list="{{ modalityOptions }}" as="o" hint-placeholder-count="3">
+                <button onClick="{{ o.pick }}" style="{{ o.style }}">
+                  <strong style="display:block;font-size:var(--size-md);font-weight:var(--fw-medium)">{{ o.label }}</strong>
+                  <span style="display:block;font:var(--type-body-sm);color:var(--text-secondary);margin-top:6px">{{ o.note }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ s3 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;gap:var(--space-5)">
+            <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-2xl)">Tipo de sesión</h3>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--space-4)">
+              <sc-for list="{{ typeOptions }}" as="o" hint-placeholder-count="2">
+                <button onClick="{{ o.pick }}" style="{{ o.style }}">
+                  <strong style="display:block;font-size:var(--size-md);font-weight:var(--fw-medium)">{{ o.label }}</strong>
+                  <span style="display:block;font:var(--type-body-sm);color:var(--text-secondary);margin-top:6px">{{ o.note }}</span>
+                </button>
+              </sc-for>
+            </div>
+            <p style="margin:0;font:var(--type-body)">Precio seleccionado: <strong>{{ priceLabel }}</strong></p>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ s4 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;gap:var(--space-5)">
+            <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-2xl)">Tema de consulta</h3>
+            <p style="margin:0;font:var(--type-body-sm);color:var(--text-secondary)">Es informativo para tu psicóloga. No cambia el precio: sigue siendo {{ priceLabel }}.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:var(--space-3)">
+              <sc-for list="{{ topicOptions }}" as="o" hint-placeholder-count="6">
+                <button onClick="{{ o.pick }}" style="{{ o.style }}">{{ o.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ s5 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;gap:var(--space-6)">
+            <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-2xl)">Fecha y hora</h3>
+            <p style="margin:0;font:var(--type-body-sm);color:var(--text-secondary)">Lunes a sábado, de 8:00 a.m. a 8:00 p.m. Sesiones de 60 minutos.</p>
+            <div style="display:flex;gap:var(--space-3);overflow-x:auto;padding-bottom:var(--space-2)">
+              <sc-for list="{{ days }}" as="d" hint-placeholder-count="12">
+                <button onClick="{{ d.pick }}" style="{{ d.style }}">
+                  <span style="display:block;font:var(--type-eyebrow);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--text-muted)">{{ d.dow }}</span>
+                  <strong style="display:block;font-family:var(--font-display);font-size:var(--size-xl);font-weight:var(--fw-light);margin-top:2px">{{ d.day }}</strong>
+                  <span style="display:block;font:var(--type-eyebrow);color:var(--text-muted)">{{ d.month }}</span>
+                </button>
+              </sc-for>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:var(--space-3)">
+              <sc-for list="{{ slots }}" as="t" hint-placeholder-count="12">
+                <button onClick="{{ t.pick }}" disabled="{{ t.disabled }}" style="{{ t.style }}">{{ t.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ s6 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;gap:var(--space-5);max-width:560px">
+            <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-2xl)">Tus datos</h3>
+            <label style="display:grid;gap:6px;font:var(--type-eyebrow);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--text-secondary)">Nombre completo
+              <input value="{{ fName }}" onChange="{{ setName }}" placeholder="Tu nombre" style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:14px 16px;background:var(--surface-card);font-size:var(--size-md);min-height:50px">
+            </label>
+            <label style="display:grid;gap:6px;font:var(--type-eyebrow);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--text-secondary)">Correo
+              <input value="{{ fEmail }}" onChange="{{ setEmail }}" type="email" placeholder="tucorreo@ejemplo.com" style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:14px 16px;background:var(--surface-card);font-size:var(--size-md);min-height:50px">
+            </label>
+            <label style="display:grid;gap:6px;font:var(--type-eyebrow);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--text-secondary)">Teléfono
+              <input value="{{ fPhone }}" onChange="{{ setPhone }}" type="tel" placeholder="10 dígitos" style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:14px 16px;background:var(--surface-card);font-size:var(--size-md);min-height:50px">
+            </label>
+            <sc-if value="{{ isCouple }}" hint-placeholder-val="{{ false }}">
+              <label style="display:grid;gap:6px;font:var(--type-eyebrow);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--text-secondary)">Nombre de tu acompañante (opcional)
+                <input value="{{ fPartner }}" onChange="{{ setPartner }}" placeholder="Nombre" style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:14px 16px;background:var(--surface-card);font-size:var(--size-md);min-height:50px">
+              </label>
+            </sc-if>
+            <sc-if value="{{ formError }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;font:var(--type-body-sm);color:var(--status-alert-fg)">{{ formError }}</p>
+            </sc-if>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ s7 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;gap:var(--space-5);max-width:760px">
+            <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-2xl)">Políticas de la clínica</h3>
+            <ul style="margin:0;padding:0;list-style:none;display:grid;gap:var(--space-4);font:var(--type-body);color:var(--text-primary)">
+              <li><strong>Cancelación:</strong> hasta 24 horas antes de la sesión, sin costo. Después de esa ventana se pierde el pago y hay que agendar de nuevo.</li>
+              <li><strong>Tolerancia:</strong> 30 minutos desde el inicio de la sesión.</li>
+              <li><strong>Si la clínica o la psicóloga cancela:</strong> tienes prioridad para reagendar.</li>
+              <li><strong>Pago:</strong> 100% por adelantado, en una sola exhibición, al momento de agendar. No se paga el día de la sesión.</li>
+              <li><strong>Cambio de psicóloga:</strong> no hay cambio automático. Si quieres cambiar, agendas directamente con otra desde el portal.</li>
+            </ul>
+            <label style="display:flex;gap:var(--space-4);align-items:flex-start;background:var(--surface-accent);border-radius:var(--radius-card);padding:var(--space-6);font:var(--type-body);cursor:pointer">
+              <input type="checkbox" checked="{{ accepted }}" onChange="{{ toggleAccept }}" style="width:20px;height:20px;margin-top:3px;accent-color:var(--clr-terracotta-500);flex:0 0 auto">
+              <span>Acepto la política de cancelación: si cancelo con menos de 24 horas de anticipación, pierdo el pago de la sesión.</span>
+            </label>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ s8 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-10)">
+            <div style="display:grid;gap:var(--space-4);align-content:start">
+              <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-2xl)">Resumen</h3>
+              <div style="display:grid;gap:var(--space-3);font:var(--type-body-sm)">
+                <div style="display:flex;justify-content:space-between;gap:var(--space-5);border-bottom:1px solid var(--border-subtle);padding-bottom:var(--space-2)"><span style="color:var(--text-secondary)">Psicóloga</span><strong>{{ sumPsy }}</strong></div>
+                <div style="display:flex;justify-content:space-between;gap:var(--space-5);border-bottom:1px solid var(--border-subtle);padding-bottom:var(--space-2)"><span style="color:var(--text-secondary)">Modalidad</span><strong>{{ sumMod }}</strong></div>
+                <div style="display:flex;justify-content:space-between;gap:var(--space-5);border-bottom:1px solid var(--border-subtle);padding-bottom:var(--space-2)"><span style="color:var(--text-secondary)">Tipo de sesión</span><strong>{{ sumType }}</strong></div>
+                <div style="display:flex;justify-content:space-between;gap:var(--space-5);border-bottom:1px solid var(--border-subtle);padding-bottom:var(--space-2)"><span style="color:var(--text-secondary)">Tema</span><strong>{{ sumTopic }}</strong></div>
+                <div style="display:flex;justify-content:space-between;gap:var(--space-5);border-bottom:1px solid var(--border-subtle);padding-bottom:var(--space-2)"><span style="color:var(--text-secondary)">Fecha y hora</span><strong>{{ sumWhen }}</strong></div>
+                <div style="display:flex;justify-content:space-between;gap:var(--space-5);font-size:var(--size-lg);padding-top:var(--space-2)"><span>Total a pagar hoy</span><strong>{{ priceLabel }}</strong></div>
+              </div>
+            </div>
+            <div style="display:grid;gap:var(--space-4);align-content:start">
+              <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-2xl)">Pago</h3>
+              <input value="{{ cardNum }}" onChange="{{ setCard }}" placeholder="Número de tarjeta" style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:14px 16px;background:var(--surface-card);font-size:var(--size-md);min-height:50px">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+                <input value="{{ cardExp }}" onChange="{{ setExp }}" placeholder="MM/AA" style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:14px 16px;background:var(--surface-card);font-size:var(--size-md);min-height:50px">
+                <input value="{{ cardCvv }}" onChange="{{ setCvv }}" placeholder="CVV" style="border:1px solid var(--border-subtle);border-radius:var(--radius-sm);padding:14px 16px;background:var(--surface-card);font-size:var(--size-md);min-height:50px">
+              </div>
+              <p style="margin:0;font:var(--type-body-sm);color:var(--text-muted)">Pago simulado. No se procesa ningún cobro real.</p>
+              <sc-if value="{{ payError }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:0;font:var(--type-body-sm);color:var(--status-alert-fg)">{{ payError }}</p>
+              </sc-if>
+              <div style="justify-self:start">
+                <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" size="lg" disabled="{{ payDisabled }}" onClick="{{ pay }}" hint-size="220px,52px">{{ payLabel }}</x-import>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+          <div style="display:grid;gap:var(--space-5);max-width:640px">
+            <span style="width:44px;height:44px;border-radius:50%;background:var(--status-success-bg);color:var(--status-success-fg);display:flex;align-items:center;justify-content:center;font-size:var(--size-xl)">✓</span>
+            <h3 style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:var(--size-3xl)">Tu sesión está confirmada</h3>
+            <p style="margin:0;font:var(--type-body);color:var(--text-secondary)">{{ confirmLine }}</p>
+            <sc-if value="{{ isOnline }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;background:var(--surface-accent);border-radius:var(--radius-card);padding:var(--space-6);font:var(--type-body)">El enlace de Google Meet se envía a tu correo antes de la sesión. Se genera automáticamente desde el calendario de la clínica.</p>
+            </sc-if>
+            <p style="margin:0;font:var(--type-body-sm);color:var(--text-secondary)">Enviamos el comprobante a {{ fEmail }}. Recuerda: puedes cancelar sin costo hasta 24 horas antes.</p>
+            <div style="justify-self:start">
+              <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" variant="secondary" onClick="{{ restart }}" hint-size="190px,44px">Agendar otra sesión</x-import>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <sc-if value="{{ showNav }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:var(--space-5) var(--space-8);border-top:1px solid var(--border-subtle);display:flex;justify-content:space-between;gap:var(--space-4);align-items:center;background:var(--surface-page)">
+          <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" variant="secondary" disabled="{{ backDisabled }}" onClick="{{ back }}" hint-size="110px,44px">Atrás</x-import>
+          <sc-if value="{{ showNext }}" hint-placeholder-val="{{ true }}">
+            <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" icon="→" disabled="{{ nextDisabled }}" onClick="{{ next }}" hint-size="140px,44px">Continuar</x-import>
+          </sc-if>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="max-width:1180px;margin:0 auto;padding:var(--section-y) var(--space-6)">
+  <div data-reveal="0">
+    <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.SectionHeading" eyebrow="Dudas" title="Preguntas frecuentes" hint-size="100%,150px"></x-import>
+  </div>
+  <div style="margin-top:var(--space-10);max-width:820px;margin-left:auto;margin-right:auto;border-top:1px solid var(--border-subtle)">
+    <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+      <details style="border-bottom:1px solid var(--border-subtle);padding:var(--space-5) 0">
+        <summary style="font-family:var(--font-display);font-weight:var(--fw-regular);font-size:var(--size-xl);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:var(--space-5)">{{ f.q }}<span style="color:var(--text-accent);font-family:var(--font-sans);font-size:var(--size-lg)">+</span></summary>
+        <p style="margin:var(--space-3) 0 0;font:var(--type-body);color:var(--text-secondary);max-width:62ch">{{ f.a }}</p>
+      </details>
+    </sc-for>
+  </div>
+</section>
+
+<section style="position:relative;overflow:hidden;background:var(--clr-clay-900)">
+  <div data-parallax="0.14" style="position:absolute;inset:-16% 0 -20%;background-image:url('assets/familiar.png');background-size:cover;background-position:center 35%"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(74,54,42,.94) 0%,rgba(74,54,42,.72) 55%,rgba(124,58,33,.42) 100%)"></div>
+  <div style="position:relative;max-width:1180px;margin:0 auto;padding:var(--section-y) var(--space-6);display:grid;gap:var(--space-6);justify-items:start;max-width:1180px">
+    <span data-reveal="0" style="font:var(--type-eyebrow);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--clr-blush-300)">Empieza hoy</span>
+    <h2 data-reveal="60" style="margin:0;font-family:var(--font-display);font-weight:var(--fw-light);font-size:clamp(30px,4.4vw,56px);line-height:var(--leading-tight);color:var(--text-inverse);max-width:16em;text-wrap:pretty">No tienes que esperar a tocar fondo para pedir ayuda.</h2>
+    <p data-reveal="120" style="margin:0;font:var(--type-body);font-size:var(--size-lg);color:var(--text-inverse-soft);max-width:34em">Eliges psicóloga, modalidad y horario en menos de dos minutos. Cancelación sin costo hasta 24 horas antes.</p>
+    <div data-reveal="180" style="display:flex;flex-wrap:wrap;gap:var(--space-4)">
+      <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" href="#reserva" variant="inverse" size="lg" icon="→" hint-size="200px,52px">Agendar mi sesión</x-import>
+      <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Button" href="#faq" variant="inverseOutline" size="lg" hint-size="180px,52px">Resolver dudas</x-import>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--surface-contrast-deep);color:var(--text-inverse)">
+  <div style="max-width:1180px;margin:0 auto;padding:var(--space-10) var(--space-6);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-10)">
+    <div style="display:grid;gap:var(--space-4);align-content:start">
+      <x-import component-from-global-scope="PsicologAFalcNDesignSystem_697a55.Wordmark" size="34" tone="inverse" hint-size="220px,40px"></x-import>
+      <p style="margin:0;font:var(--type-body-sm);color:var(--text-inverse-soft);max-width:26em">Terapia presencial en Pachuca y Mérida, y en línea por Google Meet. Enfoque: Cognitivo – Conductual.</p>
+    </div>
+    <div style="display:grid;gap:var(--space-3);align-content:start;font:var(--type-body-sm);color:var(--text-inverse-soft)">
+      <strong style="font:var(--type-eyebrow);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--text-inverse)">Contacto</strong>
+      <span>{{ phone }}</span>
+      <span>hola@psicologiafalcon.mx</span>
+      <span>Lunes a sábado, 8:00 a.m. – 8:00 p.m.</span>
+    </div>
+    <div style="display:grid;gap:var(--space-3);align-content:start;font:var(--type-body-sm);color:var(--text-inverse-soft)">
+      <strong style="font:var(--type-eyebrow);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--text-inverse)">Sedes</strong>
+      <span>Pachuca de Soto, Hidalgo</span>
+      <span>Mérida, Yucatán</span>
+      <div style="display:flex;gap:var(--space-5);margin-top:var(--space-2)">
+        <a href="#top" style="color:var(--clr-blush-300)">Instagram</a>
+        <a href="#top" style="color:var(--clr-blush-300)">Facebook</a>
+      </div>
+    </div>
+    <div style="grid-column:1/-1;border-top:1px solid var(--border-inverse);padding-top:var(--space-5);display:flex;gap:var(--space-6);flex-wrap:wrap;font:var(--type-eyebrow);letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--text-inverse-soft)">
+      <a href="#top" style="color:var(--text-inverse-soft)">Aviso de privacidad</a>
+      <a href="#top" style="color:var(--text-inverse-soft)">Términos y condiciones</a>
+      <span>© 2026 Psicología Falcón</span>
+    </div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;mostrarQuiz&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Contenido&quot;},&quot;diasCalendario&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:14,&quot;min&quot;:6,&quot;max&quot;:30,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Reserva&quot;},&quot;telefonoContacto&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;771 000 0000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contenido&quot;}}">
+const TEAM = [
+  { id: 'linda', name: 'Linda Madel Falcón Aldana', cedula: '3520932', sedes: ['Pachuca', 'Mérida'], tint: 'warm',
+    enfoque: 'Individual, pareja, familiar, tanatología', pending: false },
+  { id: 'anakaren', name: 'Ana Karen González Cisneros', cedula: '10236558', sedes: ['Pachuca'], tint: 'clay',
+    enfoque: 'Cognitivo-conductual: individual, pareja, orientación vocacional, tanatología', pending: false },
+  { id: 'naomi', name: 'Brenda Naomi García Díaz', cedula: '15214746', sedes: ['Pachuca'], tint: 'greige',
+    enfoque: 'Infanto-juvenil, orientación vocacional, individual, evaluación psicológica', pending: false },
+  { id: 'karla', name: 'Karla Alexa Arias Falcón', cedula: null, sedes: ['Pachuca', 'Mérida'], tint: 'terracotta',
+    enfoque: 'Humanista-existencial, infantojuvenil, terapia de juego', pending: true }
+];
+const FIRST = { linda: 'Linda', anakaren: 'Ana Karen', naomi: 'Naomi', karla: 'Karla' };
+const PRICE = { individual: 1000, pareja: 1250 };
+const TOPICS = ['Terapia familiar', 'Tanatología', 'Perfiles psicológicos', 'Orientación vocacional', 'Terapia infanto-juvenil', 'Otro'];
+const DOW = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+const MONTH = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+const MONTH_LONG = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+
+const chip = (sel) => 'border:1px solid ' + (sel ? 'var(--clr-terracotta-500)' : 'var(--border-subtle)') +
+  ';background:' + (sel ? 'var(--clr-terracotta-500)' : 'transparent') + ';color:' + (sel ? 'var(--text-inverse)' : 'var(--text-secondary)') +
+  ';border-radius:var(--radius-pill);padding:11px 20px;font-size:var(--size-xs);letter-spacing:var(--tracking-wide);text-transform:uppercase;cursor:pointer;min-height:44px;text-align:left;transition:var(--transition-control)';
+const card = (sel) => 'border:1px solid ' + (sel ? 'var(--clr-terracotta-500)' : 'var(--border-subtle)') +
+  ';background:' + (sel ? 'var(--surface-accent)' : 'var(--surface-card)') +
+  ';border-radius:var(--radius-card);padding:var(--space-5);cursor:pointer;text-align:left;min-height:64px;transition:var(--transition-control)';
+const pill = (opts) => {
+  const { sel, disabled } = opts;
+  if (disabled) return 'border:1px dashed var(--border-subtle);background:transparent;color:var(--text-muted);border-radius:var(--radius-sm);padding:12px 6px;font-size:var(--size-sm);min-height:46px;cursor:not-allowed;opacity:.55';
+  return 'border:1px solid ' + (sel ? 'var(--clr-terracotta-500)' : 'var(--border-subtle)') + ';background:' + (sel ? 'var(--clr-terracotta-500)' : 'var(--surface-card)') +
+    ';color:' + (sel ? 'var(--text-inverse)' : 'var(--text-primary)') + ';border-radius:var(--radius-sm);padding:12px 6px;font-size:var(--size-sm);min-height:46px;cursor:pointer;transition:var(--transition-control)';
+};
+
+class Component extends DCLogic {
+  state = {
+    q: { 1: null, 2: null, 3: null, 4: null },
+    step: 1, psy: null, modality: null, type: null, topic: null,
+    dateKey: null, time: null,
+    name: '', email: '', phone: '', partner: '',
+    accepted: false, card: '', exp: '', cvv: '',
+    formError: '', payError: '', paying: false, done: false
+  };
+
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const root = document;
+    const header = root.querySelector('[data-header]');
+
+    const armed = new WeakSet();
+    const show = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; };
+    const armReveals = () => {
+      root.querySelectorAll('[data-reveal]').forEach(el => {
+        if (armed.has(el)) return;
+        armed.add(el);
+        if (reduce) return;
+        const delay = parseInt(el.getAttribute('data-reveal') || '0', 10);
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(22px)';
+        el.style.transition = 'opacity 700ms var(--ease-out-soft) ' + delay + 'ms, transform 700ms var(--ease-out-soft) ' + delay + 'ms';
+      });
+      this._sweep();
+    };
+    this._revealAll = () => root.querySelectorAll('[data-reveal]').forEach(show);
+    this._sweep = () => {
+      root.querySelectorAll('[data-reveal]').forEach(el => {
+        if (el.style.opacity === '1') return;
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.92) show(el);
+      });
+    };
+
+    this._onScroll = () => {
+      const y = window.scrollY || 0;
+      if (header) {
+        const on = y > 40;
+        header.style.background = on ? 'rgba(251,248,243,.94)' : 'transparent';
+        header.style.borderBottom = '1px solid ' + (on ? 'var(--border-subtle)' : 'transparent');
+        header.style.backdropFilter = on ? 'saturate(140%) blur(8px)' : 'none';
+        header.querySelectorAll('a, nav a').forEach(a => {
+          if (a.closest('nav')) a.style.color = on ? 'var(--text-secondary)' : 'var(--text-inverse-soft)';
+        });
+        const wm = header.querySelector('span[style*="font-script"], span[style*="Mrs Saint"]');
+        if (wm) wm.style.color = on ? 'var(--text-primary)' : 'var(--text-inverse)';
+      }
+      this._sweep();
+      if (reduce) return;
+      root.querySelectorAll('[data-parallax]').forEach(el => {
+        const rate = parseFloat(el.getAttribute('data-parallax')) || 0;
+        const r = el.getBoundingClientRect();
+        const mid = r.top + r.height / 2 - window.innerHeight / 2;
+        el.style.transform = 'translate3d(0,' + (-mid * rate).toFixed(1) + 'px,0)';
+        el.style.willChange = 'transform';
+      });
+    };
+
+    let ticking = false;
+    this._raf = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { this._onScroll(); ticking = false; });
+    };
+    window.addEventListener('scroll', this._raf, { passive: true });
+    window.addEventListener('resize', this._raf);
+    armReveals();
+    this._rearm = setInterval(armReveals, 600);
+    this._onScroll();
+    this._fallback = setTimeout(() => this._revealAll(), 900);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._raf);
+    window.removeEventListener('resize', this._raf);
+    clearInterval(this._rearm);
+    clearTimeout(this._fallback);
+  }
+
+  set(patch) { this.setState(patch); }
+
+  pickPsy(id) {
+    const p = TEAM.find(t => t.id === id);
+    const mod = this.state.modality;
+    const stillValid = mod === 'online' || (mod && p.sedes.indexOf(mod) >= 0);
+    this.set({ psy: id, modality: stillValid ? mod : null });
+  }
+
+  bookWith(id) {
+    this.pickPsy(id);
+    this.setState({ step: 2, done: false });
+    const el = document.getElementById('reserva');
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+  }
+
+  days() {
+    const out = [];
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() + 1);
+    const n = this.props.diasCalendario ?? 14;
+    while (out.length < n) {
+      if (d.getDay() !== 0) {
+        out.push({ key: d.toISOString().slice(0, 10), dow: DOW[d.getDay()], day: String(d.getDate()), month: MONTH[d.getMonth()], long: DOW[d.getDay()] + ' ' + d.getDate() + ' de ' + MONTH_LONG[d.getMonth()] });
+      }
+      d.setDate(d.getDate() + 1);
+    }
+    return out;
+  }
+
+  slotsFor(key) {
+    const seedStr = (key || '') + (this.state.psy || '');
+    let seed = 0;
+    for (let i = 0; i < seedStr.length; i++) seed = (seed * 31 + seedStr.charCodeAt(i)) % 9973;
+    const out = [];
+    for (let h = 8; h <= 19; h++) {
+      const taken = ((seed + h * 137) % 10) < 4;
+      const hh = h > 12 ? h - 12 : h;
+      out.push({ h, label: hh + ':00 ' + (h < 12 ? 'a.m.' : 'p.m.'), disabled: taken });
+    }
+    return out;
+  }
+
+  matchIds() {
+    const q = this.state.q;
+    if (!q[1] && !q[3]) return [];
+    const score = { linda: 0, anakaren: 0, naomi: 0, karla: 0 };
+    const reason = {};
+    const add = (id, n, why) => { score[id] += n; if (why && !reason[id]) reason[id] = why; };
+    if (q[1] === 'Mi hijo o hija') { add('naomi', 2, 'Trabaja con infancia y adolescencia'); add('karla', 2, 'Terapia de juego e infantojuvenil'); }
+    if (q[1] === 'Nosotros en pareja') { add('linda', 2, 'Terapia de pareja'); add('anakaren', 2, 'Terapia de pareja'); }
+    if (q[1] === 'Toda la familia') add('linda', 3, 'Terapia familiar');
+    if (q[2] === 'Duelo o pérdida') { add('linda', 2, 'Tanatología'); add('anakaren', 2, 'Tanatología'); }
+    if (q[2] === 'Orientación vocacional') { add('anakaren', 2, 'Orientación vocacional'); add('naomi', 2, 'Orientación vocacional'); }
+    if (q[2] === 'Evaluación psicológica') add('naomi', 3, 'Evaluación psicológica');
+    if (q[2] === 'Ansiedad / estrés / autoestima') { add('anakaren', 1, 'Enfoque cognitivo-conductual'); add('linda', 1, 'Terapia individual'); }
+    if (q[3] === 'Pachuca') { add('naomi', 1); add('anakaren', 1); }
+    if (q[3] === 'Mérida') { add('linda', 2, 'Atiende en Mérida'); add('karla', 2, 'Atiende en Mérida'); }
+    if (q[3] === 'En línea') { add('linda', 1); add('karla', 1); }
+    if (q[4] === 'Práctico y estructurado') add('anakaren', 1, 'Enfoque cognitivo-conductual');
+    if (q[4] === 'Explorar y platicar libremente') { add('karla', 1, 'Enfoque humanista-existencial'); add('linda', 1, 'Acompañamiento'); }
+    if (q[3] === 'Mérida') { score.anakaren = -1; score.naomi = -1; }
+    const ranked = Object.keys(score).filter(k => score[k] > 0).sort((a, b) => score[b] - score[a]);
+    if (!ranked.length) return [];
+    const top = score[ranked[0]];
+    const tied = ranked.filter(k => score[k] === top);
+    const ids = (tied.length > 1 ? tied : ranked).slice(0, 2);
+    return ids.map(id => ({ id, reason: reason[id] || 'Coincide con lo que buscas' }));
+  }
+
+  canAdvance() {
+    const s = this.state;
+    if (s.step === 1) return !!s.psy;
+    if (s.step === 2) return !!s.modality;
+    if (s.step === 3) return !!s.type;
+    if (s.step === 4) return !!s.topic;
+    if (s.step === 5) return !!(s.dateKey && s.time !== null);
+    if (s.step === 6) return !!(s.name.trim() && /\S+@\S+\.\S+/.test(s.email) && s.phone.replace(/\D/g, '').length >= 10);
+    if (s.step === 7) return s.accepted;
+    return false;
+  }
+
+  next() {
+    if (this.state.step === 6 && !this.canAdvance()) {
+      this.set({ formError: 'Revisa tu nombre, correo y teléfono (10 dígitos) para continuar.' });
+      return;
+    }
+    if (!this.canAdvance()) return;
+    this.set({ step: Math.min(8, this.state.step + 1), formError: '' });
+  }
+
+  pay() {
+    if (!this.state.accepted) { this.set({ payError: 'Necesitas aceptar la política de cancelación.' }); return; }
+    if (this.state.card.replace(/\D/g, '').length < 15) { this.set({ payError: 'Ingresa un número de tarjeta válido.' }); return; }
+    this.set({ paying: true, payError: '' });
+    setTimeout(() => this.setState({ paying: false, done: true }), 1800);
+  }
+
+  renderVals() {
+    const s = this.state;
+    const psy = TEAM.find(t => t.id === s.psy) || null;
+    const price = s.type ? PRICE[s.type] : PRICE.individual;
+    const priceLabel = '$' + price.toLocaleString('en-US') + ' MXN';
+    const days = this.days();
+    const day = days.find(d => d.key === s.dateKey) || null;
+    const slots = this.slotsFor(s.dateKey);
+    const slot = slots.find(t => t.h === s.time) || null;
+
+    const decorate = (t) => ({
+      name: t.name,
+      tint: t.tint,
+      initials: t.name.split(' ').slice(0, 2).map(w => w[0]).join(''),
+      tintBg: { warm: 'linear-gradient(150deg,var(--clr-clay-300),var(--clr-clay-500))', clay: 'linear-gradient(150deg,var(--clr-terracotta-300),var(--clr-terracotta-500))', greige: 'linear-gradient(150deg,var(--clr-greige-500),var(--clr-clay-500))', terracotta: 'linear-gradient(150deg,var(--clr-terracotta-500),var(--clr-terracotta-900))' }[t.tint],
+      cedulaLabel: t.pending ? 'Cédula en trámite' : 'Cédula ' + t.cedula,
+      cedulaColor: t.pending ? 'var(--status-warn-fg)' : 'var(--text-muted)',
+      sedesLabel: t.sedes.join(' y ') + ' · también en línea',
+      enfoque: t.enfoque,
+      cta: 'Agendar con ' + FIRST[t.id],
+      book: () => this.bookWith(t.id)
+    });
+
+    const matches = this.matchIds().map(m => {
+      const t = TEAM.find(x => x.id === m.id);
+      return Object.assign(decorate(t), { reason: m.reason });
+    });
+
+    const mkOpts = (n, list) => list.map(label => ({
+      label, style: chip(s.q[n] === label),
+      pick: () => this.setState(st => ({ q: Object.assign({}, st.q, { [n]: st.q[n] === label ? null : label }, n === 1 && st.q[1] !== label ? { 2: null } : {}) }))
+    }));
+
+    const modalityOptions = [];
+    if (psy) {
+      psy.sedes.forEach(city => modalityOptions.push({
+        key: city, label: 'Presencial · ' + city, note: 'Consultorio en ' + city,
+        style: card(s.modality === city), pick: () => this.set({ modality: city })
+      }));
+      modalityOptions.push({ key: 'online', label: 'En línea', note: 'Google Meet', style: card(s.modality === 'online'), pick: () => this.set({ modality: 'online' }) });
+    }
+
+    const stepNames = { 1: 'Paso 1 de 8 · Psicóloga', 2: 'Paso 2 de 8 · Modalidad', 3: 'Paso 3 de 8 · Tipo de sesión', 4: 'Paso 4 de 8 · Tema', 5: 'Paso 5 de 8 · Fecha y hora', 6: 'Paso 6 de 8 · Tus datos', 7: 'Paso 7 de 8 · Políticas', 8: 'Paso 8 de 8 · Pago' };
+    const canNext = this.canAdvance();
+    const sumWhen = day && slot ? day.long + ', ' + slot.label : '—';
+    const sumMod = s.modality === 'online' ? 'En línea (Google Meet)' : (s.modality ? 'Presencial · ' + s.modality : '—');
+
+    return {
+      icon26: 26, icon24: 24, icon20: 20, icon18: 18,
+      reviews: [
+        { quote: 'Llegué sin saber cómo nombrar lo que sentía. Salí con algo concreto que practicar esa misma semana.', author: 'M. R.', detail: 'Terapia individual · Pachuca' },
+        { quote: 'Agendar en línea nos quitó la parte incómoda. Elegimos horario un domingo y el lunes ya teníamos sesión.', author: 'A. y J. L.', detail: 'Terapia de pareja · En línea' },
+        { quote: 'Mi hija esperaba su sesión con gusto. Eso, para mí, ya decía bastante.', author: 'C. F.', detail: 'Infanto-juvenil · Mérida' }
+      ],
+      ctaNoShrink: { flex: '0 0 auto', whiteSpace: 'nowrap' },
+      topicTiles: [
+        { label: 'Terapia familiar', src: 'assets/familiar.png' },
+        { label: 'Tanatología', src: 'assets/tanatologia.png' },
+        { label: 'Perfiles psicológicos', src: 'assets/individual.jpg' },
+        { label: 'Orientación vocacional', src: 'assets/vocacional.png' },
+        { label: 'Terapia infanto-juvenil', src: 'assets/infanto-juvenil.png' }
+      ],
+      teaser: (() => {
+        const out = [];
+        for (let i = 0; i < days.length && out.length < 3; i++) {
+          const d = days[i];
+          const free = this.slotsFor(d.key).filter(t => !t.disabled);
+          if (!free.length) continue;
+          const t = free[out.length % free.length];
+          const who = TEAM[(i + out.length) % TEAM.length];
+          out.push({
+            when: d.long.replace(/^(\w+)/, m => m) + ' · ' + t.label,
+            who: FIRST[who.id] + ' · ' + who.sedes[0] + ' o en línea',
+            pick: () => { this.pickPsy(who.id); this.setState({ dateKey: d.key, time: t.h, step: 2, done: false }); const el = document.getElementById('reserva'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' }); }
+          });
+        }
+        return out;
+      })(),
+      phone: this.props.telefonoContacto ?? '771 000 0000',
+      showQuiz: this.props.mostrarQuiz ?? true,
+      team: TEAM.map(t => decorate(t)),
+      faqs: [
+        { q: '¿Puedo cancelar o cambiar mi cita?', a: 'Sí, sin costo hasta 24 horas antes de la sesión. Pasada esa ventana se pierde el pago y hay que agendar de nuevo.' },
+        { q: '¿Qué pasa si llego tarde?', a: 'Hay 30 minutos de tolerancia desde el inicio de la sesión. La sesión termina a la hora prevista.' },
+        { q: '¿Cómo se paga la sesión?', a: 'El pago es 100% por adelantado, en una sola exhibición, al momento de agendar. No se paga el día de la sesión y no hay descuentos por paquete.' },
+        { q: '¿Puedo cambiar de psicóloga después de agendar?', a: 'No hay cambio automático. Si quieres cambiar, agendas directamente con otra psicóloga desde el portal.' },
+        { q: '¿Cómo funciona la sesión en línea?', a: 'Es por Google Meet. El enlace se genera automáticamente desde el calendario de la clínica al confirmar la reserva y llega a tu correo antes de la sesión.' },
+        { q: '¿Atienden domingos?', a: 'No. El horario es de lunes a sábado, de 8:00 a.m. a 8:00 p.m.' }
+      ],
+      q1: mkOpts(1, ['Yo (adulto)', 'Mi hijo o hija', 'Nosotros en pareja', 'Toda la familia']),
+      q2: mkOpts(2, ['Ansiedad / estrés / autoestima', 'Duelo o pérdida', 'Orientación vocacional', 'Evaluación psicológica', 'No estoy seguro']),
+      q3: mkOpts(3, ['Pachuca', 'Mérida', 'En línea']),
+      q4: mkOpts(4, ['Práctico y estructurado', 'Explorar y platicar libremente']),
+      showQ2: s.q[1] === 'Yo (adulto)',
+      matches, hasMatch: matches.length > 0, noMatch: matches.length === 0,
+      resetQuiz: () => this.set({ q: { 1: null, 2: null, 3: null, 4: null } }),
+
+      stepLabel: s.done ? 'Reserva confirmada' : stepNames[s.step],
+      progress: s.done ? '100%' : Math.round(s.step / 8 * 100) + '%',
+      s1: !s.done && s.step === 1, s2: !s.done && s.step === 2, s3: !s.done && s.step === 3, s4: !s.done && s.step === 4,
+      s5: !s.done && s.step === 5, s6: !s.done && s.step === 6, s7: !s.done && s.step === 7, s8: !s.done && s.step === 8,
+      done: s.done,
+      psyFirstName: psy ? FIRST[psy.id] : '',
+      psyOptions: TEAM.map(t => ({
+        name: t.name, sedesLabel: t.sedes.join(' y ') + ' · en línea',
+        cedulaLabel: t.pending ? 'Cédula en trámite' : 'Cédula ' + t.cedula,
+        style: card(s.psy === t.id), pick: () => this.pickPsy(t.id)
+      })),
+      modalityOptions,
+      typeOptions: [
+        { label: 'Individual', note: '$1,000 MXN · 60 min · una persona', style: card(s.type === 'individual'), pick: () => this.set({ type: 'individual' }) },
+        { label: 'Pareja', note: '$1,250 MXN · 60 min · dos personas', style: card(s.type === 'pareja'), pick: () => this.set({ type: 'pareja' }) }
+      ],
+      topicOptions: TOPICS.map(label => ({ label, style: chip(s.topic === label), pick: () => this.set({ topic: label }) })),
+      priceLabel,
+      days: days.map(d => ({
+        dow: d.dow, day: d.day, month: d.month, pick: () => this.set({ dateKey: d.key, time: null }),
+        style: 'flex:0 0 auto;width:78px;border:1px solid ' + (s.dateKey === d.key ? 'var(--clr-terracotta-500)' : 'var(--border-subtle)') +
+          ';background:' + (s.dateKey === d.key ? 'var(--surface-accent)' : 'var(--surface-card)') +
+          ';border-radius:var(--radius-card);padding:12px 6px;cursor:pointer;min-height:78px;transition:var(--transition-control)'
+      })),
+      slots: s.dateKey ? slots.map(t => ({
+        label: t.label, disabled: t.disabled, style: pill({ sel: s.time === t.h, disabled: t.disabled }),
+        pick: t.disabled ? () => {} : () => this.set({ time: t.h })
+      })) : [],
+      isCouple: s.type === 'pareja',
+      fName: s.name, fEmail: s.email, fPhone: s.phone, fPartner: s.partner,
+      setName: (e) => this.set({ name: e.target.value, formError: '' }),
+      setEmail: (e) => this.set({ email: e.target.value, formError: '' }),
+      setPhone: (e) => this.set({ phone: e.target.value, formError: '' }),
+      setPartner: (e) => this.set({ partner: e.target.value }),
+      formError: s.formError,
+      accepted: s.accepted,
+      toggleAccept: () => this.set({ accepted: !s.accepted, payError: '' }),
+      sumPsy: psy ? psy.name : '—', sumMod, sumType: s.type === 'pareja' ? 'Pareja · 60 min' : (s.type ? 'Individual · 60 min' : '—'),
+      sumTopic: s.topic || '—', sumWhen,
+      cardNum: s.card, cardExp: s.exp, cardCvv: s.cvv,
+      setCard: (e) => this.set({ card: e.target.value, payError: '' }),
+      setExp: (e) => this.set({ exp: e.target.value }),
+      setCvv: (e) => this.set({ cvv: e.target.value }),
+      payError: s.payError,
+      payLabel: s.paying ? 'Procesando pago…' : 'Pagar ' + priceLabel,
+      payDisabled: !s.accepted || s.paying,
+      pay: () => this.pay(),
+      isOnline: s.modality === 'online',
+      confirmLine: psy ? 'Sesión con ' + psy.name + ', ' + sumWhen.toLowerCase() + ' · ' + sumMod : '',
+      restart: () => this.setState({ step: 1, psy: null, modality: null, type: null, topic: null, dateKey: null, time: null, accepted: false, card: '', exp: '', cvv: '', done: false, payError: '' }),
+      showNav: !s.done,
+      showNext: s.step < 8,
+      back: () => this.set({ step: Math.max(1, s.step - 1), formError: '', payError: '' }),
+      backDisabled: s.step === 1,
+      next: () => this.next(),
+      nextDisabled: !canNext && s.step !== 6
+    };
+  }
+}
+</script>
+</body>
+</html>
