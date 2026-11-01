@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reseñas · Psicología Falcón</title>
+<meta name="description" content="Lo que cuentan quienes ya tomaron terapia con Psicología Falcón.">
+<meta name="theme-color" content="#5C6B50">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="resenas">
+<div data-site-header></div>
+
+<main>
+  <section class="page-hero">
+    <div class="blob blob--1" data-parallax="0.1"></div>
+    <div class="blob blob--2"></div>
+    <div class="container">
+      <nav class="breadcrumb" data-reveal><a href="index.html">Inicio</a><span>/</span><span>Reseñas</span></nav>
+      <h1 data-split>Lo que cuentan<br><em>quienes ya vinieron</em></h1>
+      <p class="lead" data-reveal style="--d:300ms">Publicadas con iniciales, con autorización de cada persona.</p>
+    </div>
+    <span class="page-hero__num" data-parallax="-0.15">05</span>
+  </section>
+
+  <section class="section" style="padding-top:clamp(40px,6vw,72px)">
+    <div class="container">
+      <div class="faq-filter" id="filters" data-reveal></div>
+      <div class="grid grid--3" id="reviews"></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="cta-band" data-reveal="zoom">
+        <div class="leaf-deco" data-leaf></div>
+        <span class="eyebrow" style="color:var(--sage-200)">Tu proceso</span>
+        <h2>Tu historia también merece un espacio.</h2>
+        <p>Agenda en menos de dos minutos, con la psicóloga que tú elijas.</p>
+        <a class="btn btn--light btn--lg" href="agendar.html" data-magnetic>Agendar mi sesión <i data-icon="arrow"></i></a>
+      </div>
+      <div class="next-page" style="margin-top:56px">
+        <a class="prev" href="modalidades.html"><small>Anterior</small><strong><i data-icon="arrow"></i>Modalidades</strong></a>
+        <a class="next" href="preguntas.html"><small>Siguiente</small><strong>Preguntas<i data-icon="arrow"></i></strong></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-site-footer></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  (function () {
+    const list = document.getElementById('reviews'), filters = document.getElementById('filters');
+    const cats = ['Todas', ...new Set(PF.REVIEWS.map(r => r.tag))];
+    let active = 'Todas';
+    const stars = PF.icon('star').repeat(5);
+    const render = () => {
+      filters.innerHTML = cats.map(c => '<button class="chip" aria-pressed="' + (c === active) + '">' + c + '</button>').join('');
+      list.innerHTML = PF.REVIEWS.filter(r => active === 'Todas' || r.tag === active).map((r, i) =>
+        '<article class="card quote-card" data-reveal style="--d:' + (i * 80) + 'ms">' +
+          '<div class="stars" aria-label="5 de 5">' + stars + '</div>' +
+          '<blockquote>' + r.quote + '</blockquote>' +
+          '<footer><div class="avatar" style="width:44px;border-radius:50%"><span style="font-size:16px">' + r.author.replace(/[^A-Z]/g, '').slice(0, 2) + '</span></div>' +
+          '<div><strong>' + r.author + '</strong>' + r.detail + '</div></footer>' +
+        '</article>').join('');
+      PF.observeReveals(list);
+    };
+    filters.addEventListener('click', e => { const b = e.target.closest('button'); if (b) { active = b.textContent; render(); } });
+    render();
+  })();
+</script>
+</body>
+</html>

@@ -1,9 +1,0 @@
-:root{
-/* the brand is mostly square-edged; radius is used sparingly */
---radius-none:0;--radius-xs:2px;--radius-sm:4px;--radius-md:8px;--radius-lg:16px;--radius-xl:24px;--radius-pill:999px;--radius-circle:50%;
---radius-card:var(--radius-sm);
---radius-image:var(--radius-md);
---radius-control:var(--radius-pill);
---border-hairline:1px;
---border-rule:1px;
-}

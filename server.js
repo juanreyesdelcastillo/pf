@@ -11,6 +11,8 @@ const MIME = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.json': 'application/json',
+  '.svg': 'image/svg+xml',
+  '.webp': 'image/webp',
 };
 
 const root = __dirname;
@@ -18,7 +20,7 @@ const port = process.env.PORT || 4321;
 
 http.createServer((req, res) => {
   let p = decodeURIComponent(url.parse(req.url).pathname);
-  if (p === '/') p = '/Psicologia Falcon.dc.html';
+  if (p.endsWith('/')) p += 'index.html';
   const filePath = path.join(root, p);
   if (!filePath.startsWith(root)) { res.writeHead(403); res.end(); return; }
   fs.readFile(filePath, (err, data) => {

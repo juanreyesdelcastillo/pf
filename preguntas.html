@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preguntas frecuentes · Psicología Falcón</title>
+<meta name="description" content="Cancelaciones, pagos, tolerancia, modalidades y más.">
+<meta name="theme-color" content="#5C6B50">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="preguntas">
+<div data-site-header></div>
+
+<main>
+  <section class="page-hero">
+    <div class="blob blob--1" data-parallax="0.1"></div>
+    <div class="blob blob--3"></div>
+    <div class="container">
+      <nav class="breadcrumb" data-reveal><a href="index.html">Inicio</a><span>/</span><span>Preguntas</span></nav>
+      <h1 data-split>Preguntas<br><em>frecuentes</em></h1>
+      <p class="lead" data-reveal style="--d:300ms">Si no encuentras tu respuesta aquí, escríbenos por WhatsApp y te ayudamos.</p>
+    </div>
+    <span class="page-hero__num" data-parallax="-0.15">06</span>
+  </section>
+
+  <section class="section" style="padding-top:clamp(40px,6vw,72px)">
+    <div class="container">
+      <div style="max-width:860px;margin:0 auto 24px" data-reveal>
+        <input class="input" id="faq-search" type="search" placeholder="Busca una pregunta… (ej. cancelar, pago, en línea)" aria-label="Buscar pregunta">
+      </div>
+      <div class="faq-filter" id="faq-cats" data-reveal></div>
+      <div class="faq" id="faq"></div>
+      <p class="muted" id="faq-empty" style="text-align:center;margin-top:28px" hidden>No encontramos preguntas con ese texto.</p>
+    </div>
+  </section>
+
+  <section class="section section--sage">
+    <div class="container grid grid--3" data-stagger="100">
+      <a class="card stack" href="https://wa.me/527710000000" target="_blank" rel="noopener"><div class="icon-badge"><i data-icon="whatsapp"></i></div><h3>WhatsApp</h3><p>Escríbenos y te respondemos en horario de atención.</p></a>
+      <a class="card stack" href="mailto:hola@psicologiafalcon.mx"><div class="icon-badge"><i data-icon="mail"></i></div><h3>Correo</h3><p>hola@psicologiafalcon.mx</p></a>
+      <a class="card stack" href="agendar.html"><div class="icon-badge"><i data-icon="calendar"></i></div><h3>Agendar</h3><p>Elige psicóloga, modalidad y horario en dos minutos.</p></a>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="next-page" style="margin-top:56px">
+        <a class="prev" href="resenas.html"><small>Anterior</small><strong><i data-icon="arrow"></i>Reseñas</strong></a>
+        <a class="next" href="agendar.html"><small>Siguiente</small><strong>Agendar cita<i data-icon="arrow"></i></strong></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-site-footer></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  (function () {
+    const box = document.getElementById('faq'), cats = document.getElementById('faq-cats');
+    const search = document.getElementById('faq-search'), empty = document.getElementById('faq-empty');
+    const all = ['Todas', ...new Set(PF.FAQS.map(f => f.cat))];
+    let cat = 'Todas';
+    const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const render = () => {
+      const q = norm(search.value.trim());
+      cats.innerHTML = all.map(c => '<button class="chip" aria-pressed="' + (c === cat) + '">' + c + '</button>').join('');
+      const items = PF.FAQS.filter(f => (cat === 'Todas' || f.cat === cat) && (!q || norm(f.q + ' ' + f.a).includes(q)));
+      box.innerHTML = items.map((f, i) =>
+        '<details data-reveal style="--d:' + (i * 50) + 'ms"><summary>' + f.q + '<i aria-hidden="true"></i></summary>' +
+        '<div class="faq__answer"><div><p>' + f.a + '</p></div></div></details>').join('');
+      empty.hidden = items.length > 0;
+      PF.observeReveals(box);
+    };
+    cats.addEventListener('click', e => { const b = e.target.closest('button'); if (b) { cat = b.textContent; render(); } });
+    search.addEventListener('input', render);
+    render();
+  })();
+</script>
+</body>
+</html>

@@ -1,7 +1,0 @@
-/* Webfonts. NOTE: no original brand font binaries were provided.
-   These are the nearest Google Fonts matches to the Instagram feed:
-   - Jost      -> the wide geometric sans used for tracked-out uppercase copy
-   - Cormorant Garamond -> the high-contrast serif of "CEREBRO" / "VACIO EMOCIONAL"
-   - Mrs Saint Delafield -> the handwritten signature lockup
-   Replace with licensed binaries + local @font-face when available. */
-@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200..700;1,300..500&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..600&family=Mrs+Saint+Delafield&display=swap");

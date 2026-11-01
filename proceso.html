@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proceso · Psicología Falcón</title>
+<meta name="description" content="Cómo agendar tu sesión con Psicología Falcón, paso a paso, en unos dos minutos.">
+<meta name="theme-color" content="#5C6B50">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="proceso">
+<div data-site-header></div>
+
+<main>
+  <section class="page-hero">
+    <div class="blob blob--1" data-parallax="0.1"></div>
+    <div class="blob blob--2"></div>
+    <div class="container">
+      <nav class="breadcrumb" data-reveal><a href="index.html">Inicio</a><span>/</span><span>Proceso</span></nav>
+      <h1 data-split>Cómo es agendar,<br><em>paso a paso</em></h1>
+      <p class="lead" data-reveal style="--d:300ms">Cuatro momentos, unos dos minutos. Todo desde aquí, sin llamadas ni mensajes de ida y vuelta.</p>
+    </div>
+    <span class="page-hero__num" data-parallax="-0.15">02</span>
+  </section>
+
+  <section class="section" style="padding-top:clamp(40px,6vw,72px)">
+    <div class="container" style="max-width:880px">
+      <div class="timeline" id="timeline">
+        <div class="timeline__fill" id="timeline-fill"></div>
+
+        <div class="step" data-reveal>
+          <div class="step__dot"><i data-icon="user-search"></i></div>
+          <div class="card stack">
+            <span class="card__num">01</span>
+            <span class="step__label">Paso uno</span>
+            <h3>Eliges psicóloga</h3>
+            <p>Ves el perfil de las cuatro y decides tú. Si dudas, el cuestionario te sugiere una — pero nunca te asigna.</p>
+            <a class="link-arrow" href="equipo.html">Ver al equipo <i data-icon="arrow"></i></a>
+          </div>
+        </div>
+
+        <div class="step" data-reveal>
+          <div class="step__dot"><i data-icon="calendar"></i></div>
+          <div class="card stack">
+            <span class="card__num">02</span>
+            <span class="step__label">Paso dos</span>
+            <h3>Escoges modalidad y horario</h3>
+            <p>Presencial en Pachuca o Mérida, o en línea. Lunes a sábado, de 8:00 a.m. a 8:00 p.m., en bloques de 60 minutos.</p>
+            <a class="link-arrow" href="modalidades.html">Ver modalidades <i data-icon="arrow"></i></a>
+          </div>
+        </div>
+
+        <div class="step" data-reveal>
+          <div class="step__dot"><i data-icon="credit-card"></i></div>
+          <div class="card stack">
+            <span class="card__num">03</span>
+            <span class="step__label">Paso tres</span>
+            <h3>Pagas en línea</h3>
+            <p>La sesión se cubre completa al momento de agendar. No se paga el día de la consulta.</p>
+            <a class="link-arrow" href="servicios.html">Ver precios <i data-icon="arrow"></i></a>
+          </div>
+        </div>
+
+        <div class="step" data-reveal>
+          <div class="step__dot"><i data-icon="mail"></i></div>
+          <div class="card stack">
+            <span class="card__num">04</span>
+            <span class="step__label">Paso cuatro</span>
+            <h3>Recibes tu confirmación</h3>
+            <p>Te llega el comprobante por correo. Si es en línea, el enlace de Google Meet se genera solo y llega antes de la sesión.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sage">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow" data-reveal>Políticas</span>
+        <h2 class="title" data-split>Reglas claras<br><em>desde el inicio</em></h2>
+      </div>
+      <div class="grid grid--3" style="margin-top:48px" data-stagger="100">
+        <div class="card stack"><div class="icon-badge"><i data-icon="clock"></i></div><h3>24 horas</h3><p>Cancelación sin costo hasta 24 horas antes. Después se pierde el pago y hay que agendar de nuevo.</p></div>
+        <div class="card stack"><div class="icon-badge"><i data-icon="check"></i></div><h3>30 minutos</h3><p>De tolerancia desde el inicio. La sesión termina a la hora prevista.</p></div>
+        <div class="card stack"><div class="icon-badge"><i data-icon="shield"></i></div><h3>Prioridad</h3><p>Si la clínica o la psicóloga cancela, tienes prioridad para reagendar.</p></div>
+      </div>
+      <div style="margin-top:44px;text-align:center" data-reveal>
+        <a class="btn btn--lg" href="agendar.html" data-magnetic>Empezar ahora <i data-icon="arrow"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="next-page">
+        <a class="prev" href="servicios.html"><small>Anterior</small><strong><i data-icon="arrow"></i>Servicios</strong></a>
+        <a class="next" href="equipo.html"><small>Siguiente</small><strong>Equipo<i data-icon="arrow"></i></strong></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-site-footer></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Línea de tiempo que se rellena con el scroll y activa cada paso
+  (function () {
+    const tl = document.getElementById('timeline'), fill = document.getElementById('timeline-fill');
+    const steps = [...tl.querySelectorAll('.step')];
+    const update = () => {
+      const r = tl.getBoundingClientRect(), mid = innerHeight * .55;
+      fill.style.height = Math.max(0, Math.min(r.height, mid - r.top)) + 'px';
+      steps.forEach(s => s.classList.toggle('is-active', s.getBoundingClientRect().top + 28 < mid));
+    };
+    const prev = PF.onScroll;
+    PF.onScroll = (y) => { prev && prev(y); update(); };
+    update();
+  })();
+</script>
+</body>
+</html>

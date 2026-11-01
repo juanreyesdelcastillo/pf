@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agendar cita · Psicología Falcón</title>
+<meta name="description" content="Agenda tu sesión con Psicología Falcón: elige psicóloga, modalidad, fecha y hora.">
+<meta name="theme-color" content="#5C6B50">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="agendar">
+<div data-site-header></div>
+
+<main>
+  <section class="page-hero" style="padding-bottom:clamp(40px,5vw,64px)">
+    <div class="blob blob--1" data-parallax="0.1"></div>
+    <div class="container">
+      <nav class="breadcrumb" data-reveal><a href="index.html">Inicio</a><span>/</span><span>Agendar cita</span></nav>
+      <h1 data-split>Agenda tu<br><em>sesión</em></h1>
+      <p class="lead" data-reveal style="--d:300ms">Cinco pasos cortos. El pago es en línea, al momento de agendar.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="booking" data-reveal>
+        <aside class="booking__aside">
+          <div class="card summary-card" id="aside-psy"></div>
+          <div class="card summary-card">
+            <span class="eyebrow">Resumen</span>
+            <dl id="summary"></dl>
+            <div class="total"><span>Total</span><span id="total">—</span></div>
+          </div>
+        </aside>
+
+        <div class="booking__panel">
+          <ol class="booking__steps" id="steps" style="margin:0"></ol>
+          <div class="booking__progress"><div id="progress"></div></div>
+          <div class="booking__body" id="pane"></div>
+          <div class="booking__foot" id="foot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-site-footer></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>

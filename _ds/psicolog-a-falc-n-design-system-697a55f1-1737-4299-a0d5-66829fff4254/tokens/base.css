@@ -1,7 +1,0 @@
-*,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--surface-page);color:var(--text-primary);font:var(--type-body);-webkit-font-smoothing:antialiased}
-a{color:var(--text-link);text-decoration:none;transition:var(--transition-control)}
-a:hover{color:var(--text-link-hover)}
-img{display:block;max-width:100%}
-::selection{background:var(--clr-blush-300);color:var(--clr-ink-900)}
-@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Equipo · Psicología Falcón</title>
+<meta name="description" content="Conoce a las cuatro psicólogas de Psicología Falcón y encuentra con quién empezar.">
+<meta name="theme-color" content="#5C6B50">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="equipo">
+<div data-site-header></div>
+
+<main>
+  <section class="page-hero">
+    <div class="blob blob--1" data-parallax="0.1"></div>
+    <div class="blob blob--3"></div>
+    <div class="container">
+      <nav class="breadcrumb" data-reveal><a href="index.html">Inicio</a><span>/</span><span>Equipo</span></nav>
+      <h1 data-split>Cuatro psicólogas,<br><em>un mismo cuidado</em></h1>
+      <p class="lead" data-reveal style="--d:300ms">Puedes elegir a quien quieras, sin importar lo que sugiera el cuestionario.</p>
+    </div>
+    <span class="page-hero__num" data-parallax="-0.15">03</span>
+  </section>
+
+  <section class="section" style="padding-top:clamp(40px,6vw,72px)">
+    <div class="container">
+      <div class="grid grid--2" id="team" data-stagger="110" style="max-width:1000px;margin-inline:auto"></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="section section--alt" id="quiz">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-reveal>Orientación</span>
+        <h2 class="title" data-split>¿Con quién<br><em>empiezo?</em></h2>
+        <p class="lead" data-reveal>Cuatro preguntas. Es una sugerencia, no una asignación: puedes agendar con quien tú quieras.</p>
+      </div>
+      <div class="quiz" style="margin-top:48px">
+        <div class="stack" style="gap:36px" id="quiz-qs" data-reveal></div>
+        <aside class="quiz__result" data-reveal="right" aria-live="polite">
+          <span class="eyebrow" style="color:var(--sage-200)">Sugerencia</span>
+          <div id="quiz-out" class="stack"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="next-page">
+        <a class="prev" href="proceso.html"><small>Anterior</small><strong><i data-icon="arrow"></i>Proceso</strong></a>
+        <a class="next" href="modalidades.html"><small>Siguiente</small><strong>Modalidades<i data-icon="arrow"></i></strong></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-site-footer></div>
+<script src="js/data.js"></script>
+<script>
+  document.getElementById('team').innerHTML = PF.TEAM.map(t =>
+    '<article class="card team-card team-card--full" id="' + t.id + '" data-tilt>' +
+      '<div class="avatar" style="--av:' + t.av + '"><span>' + PF.initials(t.name) + '</span></div>' +
+      '<div class="team-card__body">' +
+        '<span class="eyebrow">' + t.role + '</span>' +
+        '<h3>' + t.name + '</h3>' +
+        '<span class="tag' + (t.cedula ? '' : ' tag--warn') + '" style="justify-self:start">' + (t.cedula ? 'Cédula ' + t.cedula : 'Cédula en trámite') + '</span>' +
+        '<p>' + t.bio + '</p>' +
+        '<div class="tags">' + t.areas.map(a => '<span class="tag">' + a + '</span>').join('') + '</div>' +
+        '<span class="small muted" style="display:flex;gap:8px;align-items:center"><i data-icon="map-pin"></i>' + t.sedes.join(' y ') + ' · también en línea</span>' +
+        '<a class="btn btn--ghost btn--sm" style="justify-self:start;margin-top:6px" href="agendar.html?psicologa=' + t.id + '">Agendar con ' + t.first + ' <i data-icon="arrow"></i></a>' +
+      '</div>' +
+    '</article>').join('');
+</script>
+<script src="js/main.js"></script>
+<script>
+  // Cuestionario de orientación
+  (function () {
+    const Q = [
+      { n: 1, t: '1 · ¿Quién va a tomar la terapia?', o: ['Yo (adulto)', 'Mi hijo o hija', 'Nosotros en pareja', 'Toda la familia'] },
+      { n: 2, t: '2 · ¿Qué te gustaría trabajar?', o: ['Ansiedad / estrés / autoestima', 'Duelo o pérdida', 'Orientación vocacional', 'Evaluación psicológica', 'No estoy seguro'], onlyIf: s => s[1] === 'Yo (adulto)' },
+      { n: 3, t: '3 · ¿Dónde prefieres atenderte?', o: ['Pachuca', 'Mérida', 'En línea'] },
+      { n: 4, t: '4 · ¿Práctico y estructurado, o explorar libremente? (opcional)', o: ['Práctico y estructurado', 'Explorar y platicar libremente'] }
+    ];
+    const s = { 1: null, 2: null, 3: null, 4: null };
+    const qs = document.getElementById('quiz-qs'), out = document.getElementById('quiz-out');
+
+    function match() {
+      if (!s[1] && !s[3]) return [];
+      const score = { linda: 0, anakaren: 0, naomi: 0, karla: 0 }, why = {};
+      const add = (id, n, w) => { score[id] += n; if (w && !why[id]) why[id] = w; };
+      if (s[1] === 'Mi hijo o hija') { add('naomi', 2, 'Trabaja con infancia y adolescencia'); add('karla', 2, 'Terapia de juego e infantojuvenil'); }
+      if (s[1] === 'Nosotros en pareja') { add('linda', 2, 'Terapia de pareja'); add('anakaren', 2, 'Terapia de pareja'); }
+      if (s[1] === 'Toda la familia') add('linda', 3, 'Terapia familiar');
+      if (s[2] === 'Duelo o pérdida') { add('linda', 2, 'Tanatología'); add('anakaren', 2, 'Tanatología'); }
+      if (s[2] === 'Orientación vocacional') { add('anakaren', 2, 'Orientación vocacional'); add('naomi', 2, 'Orientación vocacional'); }
+      if (s[2] === 'Evaluación psicológica') add('naomi', 3, 'Evaluación psicológica');
+      if (s[2] === 'Ansiedad / estrés / autoestima') { add('anakaren', 1, 'Enfoque cognitivo-conductual'); add('linda', 1, 'Terapia individual'); }
+      if (s[3] === 'Pachuca') { add('naomi', 1); add('anakaren', 1); }
+      if (s[3] === 'Mérida') { add('linda', 2, 'Atiende en Mérida'); add('karla', 2, 'Atiende en Mérida'); }
+      if (s[3] === 'En línea') { add('linda', 1); add('karla', 1); }
+      if (s[4] === 'Práctico y estructurado') add('anakaren', 1, 'Enfoque cognitivo-conductual');
+      if (s[4] === 'Explorar y platicar libremente') { add('karla', 1, 'Enfoque humanista-existencial'); add('linda', 1, 'Acompañamiento'); }
+      if (s[3] === 'Mérida') { score.anakaren = -1; score.naomi = -1; }
+      const ranked = Object.keys(score).filter(k => score[k] > 0).sort((a, b) => score[b] - score[a]);
+      if (!ranked.length) return [];
+      const tied = ranked.filter(k => score[k] === score[ranked[0]]);
+      return (tied.length > 1 ? tied : ranked).slice(0, 2).map(id => ({ id, why: why[id] || 'Coincide con lo que buscas' }));
+    }
+
+    function render() {
+      qs.innerHTML = Q.filter(q => !q.onlyIf || q.onlyIf(s)).map(q =>
+        '<div class="quiz__q"><p>' + q.t + '</p><div style="display:flex;flex-wrap:wrap;gap:10px">' +
+        q.o.map(o => '<button class="chip" data-q="' + q.n + '" data-v="' + o + '" aria-pressed="' + (s[q.n] === o) + '">' + o + '</button>').join('') +
+        '</div></div>').join('') +
+        '<div><button class="btn btn--ghost btn--sm" data-reset>Empezar de nuevo</button></div>';
+      const m = match();
+      out.innerHTML = m.length
+        ? m.map(x => { const t = PF.TEAM.find(p => p.id === x.id); return '<div class="card stack" style="gap:8px;padding:22px"><h3 style="font-size:24px">' + t.name + '</h3><p class="small">' + x.why + '</p><a class="btn btn--light btn--sm" style="justify-self:start" href="agendar.html?psicologa=' + t.id + '">Agendar con ' + t.first + '</a></div>'; }).join('') +
+          '<p class="small" style="color:var(--text-inv-2)">Puedes ignorar esta sugerencia y elegir a cualquier otra psicóloga.</p>'
+        : '<p style="color:var(--text-inv-2)">Responde las preguntas y aquí aparecerán una o dos psicólogas que encajan con lo que necesitas.</p>';
+    }
+    qs.addEventListener('click', e => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      if (b.hasAttribute('data-reset')) { Object.keys(s).forEach(k => s[k] = null); return render(); }
+      const n = +b.dataset.q, v = b.dataset.v;
+      s[n] = s[n] === v ? null : v;
+      if (n === 1 && s[1] !== 'Yo (adulto)') s[2] = null;
+      render();
+    });
+    render();
+  })();
+</script>
+</body>
+</html>
